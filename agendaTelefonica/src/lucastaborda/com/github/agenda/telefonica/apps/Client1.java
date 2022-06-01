@@ -18,9 +18,9 @@ public class Client1 {
 		System.out.println("============  AGENDA   ==========");
 		System.out.println("===================================");
 		System.out.println("Digite 1 para Inserir um novo contato");
-		System.out.println("Digite 2 para Editar um contato existente");
+		System.out.println("Digite 2 para Listar todos os contatos");
 		System.out.println("Digite 3 para Excluir um contato existente");
-		System.out.println("Digite 4 para Listar todos os Contatos");
+		System.out.println("Digite 4 para Editar um contato existente");
 		System.out.println("Digite 5 para Visualizar um contato detalhado");
 		System.out.println("Digite 0 para encerrar");
 		System.out.println("===================================");
@@ -29,40 +29,145 @@ public class Client1 {
 	public static void main(String args[]) {
 		
 		 int opcao;
-	     Scanner entrada = new Scanner(System.in);
+	     Scanner scan = new Scanner(System.in);
+	     
+	     ArrayList<Contato> contatos = new ArrayList<Contato>();
+	     ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
+	     Agenda agenda = new Agenda(pessoas);
 	     
 	        do{
 	            menu();
-	            opcao = entrada.nextInt();
+	            opcao = scan.nextInt();
 	            
 	            switch(opcao){
 	            case 1:
-	            	
-	            	break;
+	            	System.out.println("Digite o nome do pessoa: ");
+	    			Nome nome = null;
+	    			
+	    			if (scan.hasNext()) {
+		    			nome = new Nome (scan.next());
+	    			} 
+	    			
+	    			System.out.println("Digite o sobrenome da pessoa: ");
+	    			Sobrenome sobrenome = null;
+	    			
+	    			if (scan.hasNext()) {
+		    			sobrenome = new Sobrenome (scan.next());
+	    			} 
+	    			
+	    			System.out.println("Digite o cpf da pessoa: ");
+	    			Cpf cpf = null;
+	    			
+	    			if (scan.hasNext()) {
+		    			cpf = new Cpf (scan.next());
+	    			} 
+
+//	    			ArrayList<Contato> contatos = new ArrayList<>();
+	    			
+	    			Pessoa novapessoa = new Pessoa(nome, sobrenome, cpf, contatos);
+	    			pessoas.add(novapessoa);
+	    			
+	    			System.out.println("Cadastrado com sucesso");
+
+	    			
+	    			do {
+	    				System.out.println("Digite o nome do contato: ");
+	    				Nome nomeContato = null;
+		    			
+		    			if (scan.hasNext()) {
+			    			nomeContato = new Nome (scan.next());
+		    			} 
+	    				
+	    				System.out.println("Digite o sobrenome do contato: ");
+	    				Sobrenome sobrenomeContato = null;
+		    			
+		    			if (scan.hasNext()) {
+		    				sobrenomeContato = new Sobrenome (scan.next());
+		    			} 
+	    				
+	    				System.out.println("Digite o telefone do contato: ");
+	    				Telefone telefoneContato = null;
+		    			
+		    			if (scan.hasNext()) {
+		    				telefoneContato = new Telefone (scan.next());
+		    			} 
+	    				
+	    				System.out.println("Digite o CPF do contato: ");
+	    				Cpf cpfContato = null;
+		    			
+		    			if (scan.hasNext()) {
+		    				cpfContato = new Cpf (scan.next());
+		    			} 
+	    				
+	    				Contato novoContato = new Contato(nomeContato, sobrenomeContato, telefoneContato, cpfContato);
+	    				
+	    				contatos.add(novoContato);
+	    				
+	    				System.out.println("Deseja adicionar mais algum contato para a pessoa? Digite 1 se SIM, 0 se NÃƒO");
+	    				opcao = scan.nextInt();
+	    				scan.nextLine();
+	    				
+	    			} while (opcao == 1);
+	    			
+	    			if (opcao == 0 ) {
+	    				menu();
+	    			}
+	    			System.out.println("Cadastrado com sucesso");
+	    			
+	    			return;
+//	            	break;
 	                
 	            case 2:
-//	                
+	            	pessoas.forEach(pessoa -> System.out.println(pessoa.getNome()));
+	            	contatos.forEach(contato -> System.out.println(contato.getNome()));
+	            	pessoas.forEach(pessoa -> System.out.println(pessoa.getNome()));
+	            	contatos.forEach(contato -> System.out.println(contato.getNome()));
 	                break;
 	                
 	            case 3:
-//	                exclui();
-	                break;
+//	            	System.out.println("Digite o nome do contato: ");
+//	    			Nome nome = null;
+//	    			
+//	    			if (scan.hasNext()) {
+//		    			nome = new Nome (scan.next());
+//	    			} 
+//	    			
+//	    			System.out.println("Digite o sobrenome: ");
+//	    			Sobrenome sobrenome1 = null;
+//	    			
+//	    			if (scan.hasNext()) {
+//		    			sobrenome = new Sobrenome (scan.next());
+//	    			} 
+//	    			
+//
+//	    			System.out.println("Digite o cpf do contato: ");
+//	    			Cpf cpf = null;
+//	    			
+//	    			if (scan.hasNext()) {
+//		    			cpf = new Cpf (scan.next());
+//	    			} 
+//
+//	    			ArrayList<Contato> contatos = new ArrayList<>();
+//	    			
+//	    			Pessoa novapessoa = new Pessoa(nome, sobrenome, cpf, contatos);
+//	    			pessoas.remove(novapessoa);
+//	                break;
 	                
 	            case 4:
 	            	imprimiTodasPessoasDaAgenda();
 	                break;
 	                
 	            case 5:
-//	                consulta();
+	            	
 	                break;
 	            
 	            case 0:
-	            	 System.out.println("Aplicação finalizada");
+	            	 System.out.println("AplicaÃ§Ã£o finalizada");
 	            	 System.exit(0);
 	                break;
 	                
 	            default:
-	            	System.out.println("Opção inválida, digite um número entre 1 e 5");
+	            	System.out.println("OpÃ§Ã£o invÃ¡lida, digite um nÃºmero entre 1 e 5");
 				}
 	   
 	        } while(opcao != 0);
@@ -75,7 +180,7 @@ public class Client1 {
 			Cpf cpf1 = new Cpf("123456789");
 			Telefone telefone1 = new Telefone("(41)99999-9999");
 //			
-			Nome nome2 = new Nome("Vitória");
+			Nome nome2 = new Nome("VitÃ³ria");
 			Sobrenome sobrenome2 = new Sobrenome("da Derrota");
 			Cpf cpf2 = new Cpf("987654321");
 			Telefone telefone2 = new Telefone("(41)98888-8888");

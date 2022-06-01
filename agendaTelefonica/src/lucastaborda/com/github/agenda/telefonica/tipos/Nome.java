@@ -19,7 +19,7 @@ public class Nome {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(nome);
+		sb.append("Nome: " + nome);
 		return sb.toString();
 	}
 }

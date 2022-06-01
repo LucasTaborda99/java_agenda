@@ -25,4 +25,12 @@ public class Contato {
 		+ cpfs + "\n" 
 		+ telefones + "\n";
 	}
+
+	public void setNome(Nome nomes) {
+		this.nomes = nomes;
+	}
+	
+	public Nome getNome() {
+		return nomes;
+	}
 }
