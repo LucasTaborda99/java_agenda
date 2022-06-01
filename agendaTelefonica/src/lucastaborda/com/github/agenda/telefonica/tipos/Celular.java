@@ -19,7 +19,7 @@ private String celular;
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(celular);
+		sb.append("Celular: " + celular);
 		return sb.toString();
 	}
 }

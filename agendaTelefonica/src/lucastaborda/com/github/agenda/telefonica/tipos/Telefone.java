@@ -19,7 +19,7 @@ public class Telefone {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Telefone do Contato: " + telefone);
+		sb.append("Telefone: " + telefone);
 		return sb.toString();
 	}
 }

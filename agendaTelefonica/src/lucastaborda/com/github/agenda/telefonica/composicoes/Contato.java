@@ -19,18 +19,18 @@ public class Contato {
 		this.cpfs = cpfs;
 	}
 	
-	@Override
-	public String toString() {
-		return "Nome do contato: " + nomes + " " + sobrenomes + "\n" 
-		+ cpfs + "\n" 
-		+ telefones + "\n";
-	}
-
 	public void setNome(Nome nomes) {
 		this.nomes = nomes;
 	}
 	
 	public Nome getNome() {
 		return nomes;
+	}
+
+	@Override
+	public String toString() {
+		return nomes + "\n" + sobrenomes + "\n" 
+		+ cpfs + "\n" 
+		+ telefones + "\n";
 	}
 }

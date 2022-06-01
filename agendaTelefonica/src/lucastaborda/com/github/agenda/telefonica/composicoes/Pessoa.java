@@ -50,18 +50,4 @@ public class Pessoa {
 	public ArrayList<Contato> getContatos() {
 		return contatos;
 	}
-	
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Nome da Pessoa: " + nome + " " + sobrenome + " / " + cpf);
-		return sb.toString();
-	}
-	
-	public void mostrarTodosContatosDaPessoa() {
-		System.out.println("================== Contatos em Detalhes da pessoa selecionada ================================");
-		this.contatos.forEach(contato -> {
-			System.out.println(contato);
-		});
-	}
 }
