@@ -100,14 +100,22 @@ public class Agenda {
 	}
 	
 	public void editarContato(ArrayList<Contato> contatos, Scanner scan) {
-		
+		System.out.println("----------------- Editando os contatos -----------------");	
+		pessoas.forEach(pessoa -> System.out.println(pessoa.getContatos()));
 	}
 	
 	public void excluirContato(ArrayList<Contato> contatos, Scanner scan) {
-		
+		System.out.println("----------------- Excluindo os contatos -----------------");	
+	 	System.out.println("Digite o nome do contato para excluir: ");
+		String nome = scan.nextLine();
+		for (Contato contato : contatos) {
+			contatos.remove(contato);
+				System.out.println(contato);
+		}
 	}
 	
 	public void visualizarContatoDetalhado(ArrayList<Contato> contatos, Scanner scan) {
-		
+		System.out.println("----------------- Visualizando contato detalhado -----------------");	
+		pessoas.forEach(pessoa -> System.out.println(pessoa.getContatos()));
 	}
 }

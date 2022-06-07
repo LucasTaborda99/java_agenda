@@ -64,8 +64,8 @@ public class Client1 {
 	        break;
 	                
 	        case 4:
-	            agenda.excluirContato(contatos, scan);
-	        break;
+				agenda.excluirContato(contatos, scan);
+				break;
 	                
 	        case 5:
 	            agenda.visualizarContatoDetalhado(contatos, scan);
